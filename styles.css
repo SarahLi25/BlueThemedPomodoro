@@ -1,87 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* Background + Layout */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #cceeff, #ffffff);
-  color: #1b1b2f;
+  background: linear-gradient(to bottom right, #ffe4e1, #ffccd5);
+  font-family: 'Segoe UI', sans-serif;
+  color: #893f45;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-}
-
-.container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
-  border: 3px dashed #a8dadc;
-  width: 90%;
-  max-width: 400px;
 }
 
+/* Main layout */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Title */
 h1 {
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
-  color: #0077b6;
-}
-
-.slogan {
-  font-size: 1.1rem;
-  color: #468faf;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
-.mode-buttons {
-  margin-bottom: 1rem;
-}
-
-.mode-buttons button {
-  margin: 0.3rem;
-  padding: 0.5rem 1rem;
-  background-color: #caf0f8;
-  border: 2px solid #90e0ef;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.8rem;
+  color: #d6336c;
+  letter-spacing: 1px;
   font-weight: 600;
-  transition: 0.3s;
 }
 
-.mode-buttons button.active {
-  background-color: #48cae4;
-  color: white;
-  border-color: #0077b6;
-}
-
-#timer {
+/* Timer */
+.timer-display {
   font-size: 4rem;
-  margin: 20px 0;
-  color: #023e8a;
+  font-weight: 600;
+  color: #c9184a;
 }
 
-.buttons button {
-  padding: 10px 20px;
-  margin: 8px;
+/* Buttons */
+button {
+  background: rgba(255, 105, 180, 0.2);
   border: none;
-  border-radius: 12px;
-  background-color: #90e0ef;
-  color: #03045e;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 20px;
+  color: #c9184a;
   font-size: 1rem;
   cursor: pointer;
-  font-weight: 600;
   transition: background 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
-.buttons button:hover {
-  background-color: #caf0f8;
+button:hover {
+  background: rgba(255, 105, 180, 0.4);
 }
 
-#status {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #0077b6;
+/* Button Groups */
+.mode-buttons,
+.control-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+/* Quote */
+.quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #a05260;
+  margin-top: 1rem;
+}
+
