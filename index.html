@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <title>Pink Cowboy Pomodoro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pomodoro</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="theme-clouds">
+  <h1>Pomodoro</h1>
+
+  <div class="theme-selector">
+    <select id="theme" aria-label="Select theme">
+      <option value="clouds">☁️ Clouds</option>
+      <option value="ocean">🌊 Ocean</option>
+      <option value="gingham">🧵 Gingham</option>
+    </select>
+  </div>
+
   <main>
-    <h1>🤠 Pink Cowboy Pomodoro</h1>
-
     <div class="mode-buttons">
-      <button onclick="setTimer(25)">Pomodoro</button>
-      <button onclick="setTimer(5)">Short Break</button>
-      <button onclick="setTimer(15)">Long Break</button>
+      <button onclick="setMode('pomodoro')">Pomodoro</button>
+      <button onclick="setMode('short')">Short Break</button>
+      <button onclick="setMode('long')">Long Break</button>
     </div>
 
-    <div class="timer-display">
-      <span id="minutes">25</span>:<span id="seconds">00</span>
-    </div>
+    <div class="timer-display" id="timer">25:00</div>
 
     <div class="control-buttons">
       <button onclick="startTimer()">Start</button>
@@ -25,8 +32,9 @@
       <button onclick="resetTimer()">Reset</button>
     </div>
 
-    <p class="quote">"Wrangle your focus, cowgirl."</p>
+    <p class="quote">"Focus like the clouds drift — gently and freely."</p>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
