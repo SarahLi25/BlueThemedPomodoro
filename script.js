@@ -1,65 +1,38 @@
-let mode = "sunny"; // default mode
+let minutesDisplay = document.getElementById("minutes");
+let secondsDisplay = document.getElementById("seconds");
+
 let timer;
-let minutes = 25;
-let seconds = 0;
+let totalSeconds = 25 * 60;
+let remainingSeconds = totalSeconds;
 let isRunning = false;
 
-const timerDisplay = document.getElementById('timer');
-const statusDisplay = document.getElementById('status');
-const startBtn = document.getElementById('start');
-const pauseBtn = document.getElementById('pause');
-const resetBtn = document.getElementById('reset');
-const sunnyBtn = document.getElementById('sunny');
-const rainyBtn = document.getElementById('rainy');
-const stormyBtn = document.getElementById('stormy');
-
-function updateDisplay(mins, secs) {
-  timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+function updateDisplay() {
+  const mins = Math.floor(remainingSeconds / 60);
+  const secs = remainingSeconds % 60;
+  minutesDisplay.textContent = String(mins).padStart(2, "0");
+  secondsDisplay.textContent = String(secs).padStart(2, "0");
 }
 
-function setMode(newMode) {
-  mode = newMode;
+function setTimer(mins) {
   clearInterval(timer);
   isRunning = false;
-
-  document.querySelectorAll('.mode-buttons button').forEach(btn => btn.classList.remove('active'));
-
-  if (mode === "sunny") {
-    minutes = 25;
-    statusDisplay.textContent = "🌤️ Time to shine!";
-    sunnyBtn.classList.add('active');
-  } else if (mode === "rainy") {
-    minutes = 5;
-    statusDisplay.textContent = "🌧️ Take a light break!";
-    rainyBtn.classList.add('active');
-  } else if (mode === "stormy") {
-    minutes = 15;
-    statusDisplay.textContent = "🌩️ Rest before the next wave!";
-    stormyBtn.classList.add('active');
-  }
-
-  seconds = 0;
-  updateDisplay(minutes, seconds);
+  totalSeconds = mins * 60;
+  remainingSeconds = totalSeconds;
+  updateDisplay();
 }
 
 function startTimer() {
   if (isRunning) return;
   isRunning = true;
-
   timer = setInterval(() => {
-    if (seconds === 0) {
-      if (minutes === 0) {
-        clearInterval(timer);
-        isRunning = false;
-        statusDisplay.textContent = "⏰ Time's up! Choose your next forecast.";
-        return;
-      }
-      minutes--;
-      seconds = 59;
+    if (remainingSeconds <= 0) {
+      clearInterval(timer);
+      isRunning = false;
+      alert("Yeehaw! Time’s up, partner!");
     } else {
-      seconds--;
+      remainingSeconds--;
+      updateDisplay();
     }
-    updateDisplay(minutes, seconds);
   }, 1000);
 }
 
@@ -71,15 +44,9 @@ function pauseTimer() {
 function resetTimer() {
   clearInterval(timer);
   isRunning = false;
-  setMode(mode); // reset current mode
+  remainingSeconds = totalSeconds;
+  updateDisplay();
 }
 
-sunnyBtn.addEventListener('click', () => setMode('sunny'));
-rainyBtn.addEventListener('click', () => setMode('rainy'));
-stormyBtn.addEventListener('click', () => setMode('stormy'));
-startBtn.addEventListener('click', startTimer);
-pauseBtn.addEventListener('click', pauseTimer);
-resetBtn.addEventListener('click', resetTimer);
+updateDisplay();
 
-// Initialize on page load
-setMode("sunny");
