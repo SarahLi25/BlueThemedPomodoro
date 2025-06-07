@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@ body {
 
 /* TITLE */
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 2rem 2rem 1rem 2rem;
   align-self: flex-start;
   color: #001f3f; /* dark navy */
@@ -68,7 +68,7 @@ main {
   padding: 0.6rem 1.4rem;
   border: none;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   background-color: rgba(255 255 255 / 0.9);
   color: #001f3f;
@@ -85,7 +85,7 @@ main {
 
 /* TIMER */
 .timer-display {
-  font-size: 8rem;
+  font-size: 10rem;
   font-weight: bold;
   color: #001f3f; /* dark navy */
   text-shadow: 0 0 8px rgba(0, 31, 63, 0.5);
@@ -123,7 +123,7 @@ main {
   background-image: url('https://i.pinimg.com/736x/5d/9b/4a/5d9b4aa68eb7e6a5d1d8fc036a1284ea.jpg');
   background-size: cover;
   background-position: center;
-=======
+}
 /* Base Reset */
 * {
   margin: 0;
@@ -133,9 +133,9 @@ main {
 
 /* Background + Layout */
 body {
-  background: linear-gradient(to bottom right, #ffe4e1, #ffccd5);
+  background: linear-gradient(to bottom right, #a2a5e6, #2c2285);
   font-family: 'Segoe UI', sans-serif;
-  color: #893f45;
+  color: #36417e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,35 +153,35 @@ main {
 
 /* Title */
 h1 {
-  font-size: 1.8rem;
-  color: #d6336c;
+  font-size: 2rem;
+  color: #3c4ed8;
   letter-spacing: 1px;
   font-weight: 600;
 }
 
 /* Timer */
 .timer-display {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 600;
-  color: #c9184a;
+  color: #1c2d9f;
 }
 
 /* Buttons */
 button {
-  background: rgba(255, 105, 180, 0.2);
+  background: rgba(43, 23, 155, 0.2);
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   border-radius: 20px;
-  color: #c9184a;
-  font-size: 1rem;
+  color: #2a1d6a;
+  font-size: 2rem;
   cursor: pointer;
   transition: background 0.3s ease;
   backdrop-filter: blur(4px);
 }
 
 button:hover {
-  background: rgba(255, 105, 180, 0.4);
+  background: rgba(70, 62, 150, 0.4);
 }
 
 /* Button Groups */
@@ -197,6 +197,6 @@ button:hover {
 .quote {
   font-style: italic;
   font-size: 0.95rem;
-  color: #a05260;
+  color: #40437c;
   margin-top: 1rem;
-
+}
