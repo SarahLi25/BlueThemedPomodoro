@@ -1,3 +1,129 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: center;
+  transition: background 0.5s ease;
+  color: #001f3f; /* dark navy blue base for text */
+}
+
+/* TITLE */
+h1 {
+  font-size: 2.5rem;
+  margin: 2rem 2rem 1rem 2rem;
+  align-self: flex-start;
+  color: #001f3f; /* dark navy */
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  user-select: none;
+  z-index: 10;
+}
+
+/* THEME SELECTOR */
+.theme-selector {
+  margin: 5rem 0 1rem 0;
+  width: 200px;
+}
+
+.theme-selector select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #003366; /* darker navy blue */
+  color: #ffffff; /* white text */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.theme-selector select:hover,
+.theme-selector select:focus {
+  background-color: #002244;
+  outline: none;
+}
+
+/* MAIN CONTAINER */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0; /* because title fixed */
+  padding-top: 0;
+}
+
+/* BUTTONS */
+.mode-buttons button,
+.control-buttons button {
+  margin: 0.3rem;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(255 255 255 / 0.9);
+  color: #001f3f;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.mode-buttons button:hover,
+.control-buttons button:hover {
+  transform: scale(1.05);
+  background-color: #e0e6f8;
+}
+
+/* TIMER */
+.timer-display {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #001f3f; /* dark navy */
+  text-shadow: 0 0 8px rgba(0, 31, 63, 0.5);
+  user-select: none;
+}
+
+/* QUOTE */
+.quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 600;
+  margin: 0 1rem 2rem;
+  max-width: 440px;
+  color: #001f3f;
+  text-shadow:
+    1px 1px 3px rgba(255 255 255 / 0.8),
+    0 0 8px rgba(0 31 63 / 0.7);
+  user-select: none;
+}
+
+/* THEMES */
+.theme-clouds {
+  background-image: url('https://i.pinimg.com/736x/58/69/d6/5869d65fce581f894d44dcf2807332ef.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.theme-ocean {
+  background-image: url('https://i.pinimg.com/736x/c6/73/8b/c6738bf44ca4a85e6d205f38c689eb20.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.theme-gingham {
+  background-image: url('https://i.pinimg.com/736x/5d/9b/4a/5d9b4aa68eb7e6a5d1d8fc036a1284ea.jpg');
+  background-size: cover;
+  background-position: center;
+=======
 /* Base Reset */
 * {
   margin: 0;
@@ -73,5 +199,4 @@ button:hover {
   font-size: 0.95rem;
   color: #a05260;
   margin-top: 1rem;
-}
 
