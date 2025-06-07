@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Focus Forecast</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pink Cowboy Pomodoro</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>⛅ Focus Forecast</h1>
-    <p class="slogan">Productivity with a chance of clarity.</p>
+  <main>
+    <h1>🤠 Pink Cowboy Pomodoro</h1>
 
     <div class="mode-buttons">
-      <button id="sunny">☀️ Sunny Work</button>
-      <button id="rainy">🌧️ Rainy Break</button>
-      <button id="stormy">🌩️ Stormy Long Break</button>
+      <button onclick="setTimer(25)">Pomodoro</button>
+      <button onclick="setTimer(5)">Short Break</button>
+      <button onclick="setTimer(15)">Long Break</button>
     </div>
 
-    <div id="timer">25:00</div>
-
-    <div class="buttons">
-      <button id="start">Start Forecast</button>
-      <button id="pause">Pause Skies</button>
-      <button id="reset">Clear Skies</button>
+    <div class="timer-display">
+      <span id="minutes">25</span>:<span id="seconds">00</span>
     </div>
 
-    <p id="status">🌤️ Time to shine!</p>
-  </div>
+    <div class="control-buttons">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <p class="quote">"Wrangle your focus, cowgirl."</p>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
+
