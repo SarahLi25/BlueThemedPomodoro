@@ -1,52 +1,70 @@
-let minutesDisplay = document.getElementById("minutes");
-let secondsDisplay = document.getElementById("seconds");
+const timerDisplay = document.getElementById('timer');
+const themeSelector = document.getElementById('theme');
+const quoteElement = document.querySelector('.quote');
 
-let timer;
-let totalSeconds = 25 * 60;
-let remainingSeconds = totalSeconds;
-let isRunning = false;
+let interval;
+let timeLeft = 1500; // 25 minutes default
+
+const themes = {
+  clouds: {
+    className: 'theme-clouds',
+    quote: '"Focus like the clouds drift — gently and freely."'
+  },
+  ocean: {
+    className: 'theme-ocean',
+    quote: '"Dive deep into focus, let your mind sail smoothly."'
+  },
+  gingham: {
+    className: 'theme-gingham',
+    quote: '"Stitch your time with care and calm determination."'
+  }
+};
+
+themeSelector.addEventListener('change', (e) => {
+  const theme = themes[e.target.value];
+  document.body.className = theme.className;
+  quoteElement.textContent = theme.quote;
+});
 
 function updateDisplay() {
-  const mins = Math.floor(remainingSeconds / 60);
-  const secs = remainingSeconds % 60;
-  minutesDisplay.textContent = String(mins).padStart(2, "0");
-  secondsDisplay.textContent = String(secs).padStart(2, "0");
-}
-
-function setTimer(mins) {
-  clearInterval(timer);
-  isRunning = false;
-  totalSeconds = mins * 60;
-  remainingSeconds = totalSeconds;
-  updateDisplay();
+  const minutes = Math.floor(timeLeft / 60)
+    .toString()
+    .padStart(2, '0');
+  const seconds = (timeLeft % 60).toString().padStart(2, '0');
+  timerDisplay.textContent = `${minutes}:${seconds}`;
 }
 
 function startTimer() {
-  if (isRunning) return;
-  isRunning = true;
-  timer = setInterval(() => {
-    if (remainingSeconds <= 0) {
-      clearInterval(timer);
-      isRunning = false;
-      alert("Yeehaw! Time’s up, partner!");
-    } else {
-      remainingSeconds--;
+  clearInterval(interval);
+  interval = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
       updateDisplay();
+    } else {
+      clearInterval(interval);
+      // Optionally, add a sound or notification here.
     }
   }, 1000);
 }
 
 function pauseTimer() {
-  clearInterval(timer);
-  isRunning = false;
+  clearInterval(interval);
 }
 
 function resetTimer() {
-  clearInterval(timer);
-  isRunning = false;
-  remainingSeconds = totalSeconds;
+  clearInterval(interval);
+  timeLeft = 1500;
+  updateDisplay();
+}
+
+function setMode(mode) {
+  clearInterval(interval);
+  if (mode === 'pomodoro') timeLeft = 1500;
+  else if (mode === 'short') timeLeft = 300;
+  else if (mode === 'long') timeLeft = 900;
   updateDisplay();
 }
 
 updateDisplay();
+
 
