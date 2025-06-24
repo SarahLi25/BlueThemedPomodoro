@@ -1,11 +1,11 @@
-const timerDisplay = document.getElementById('timer');
-const themeSelector = document.getElementById('theme');
-const quoteElement = document.querySelector('.quote');
+let timerDisplay = document.getElementById('timer');
+let themeSelector = document.getElementById('theme');
+let quoteElement = document.querySelector('.quote');
 
 let interval;
 let timeLeft = 1500; // 25 minutes default
 
-const themes = {
+let themes = {
   clouds: {
     className: 'theme-clouds',
     quote: '"Focus like the clouds drift — gently and freely."'
@@ -21,13 +21,13 @@ const themes = {
 };
 
 themeSelector.addEventListener('change', (e) => {
-  const theme = themes[e.target.value];
+  let theme = themes[e.target.value];
   document.body.className = theme.className;
   quoteElement.textContent = theme.quote;
 });
 
 function updateDisplay() {
-  const minutes = Math.floor(timeLeft / 60)
+  let minutes = Math.floor(timeLeft / 60)
     .toString()
     .padStart(2, '0');
   const seconds = (timeLeft % 60).toString().padStart(2, '0');
